@@ -78,7 +78,7 @@ J'me souviens peut-être plus des questions donc il y aura que ça, ouais.
 - Q2. Votre debian fonctionne grâce à un programme nommé systemd. Qu’est-ce que ce programme ? Que pouvez-vous faire avec ? 
     - gestionnaire de services, on peut lancer des services, les arrêter, les redémarrer, etc. C'est un daemon qui s'occupe de l'initialisation du système
 - Q3. Faite en sorte que votre debian utilise comme afficheur graphique wayland. (Simplement installer wayland ne suffira pas.) 
-    - `/etc/gdm3/custom.conf`, `WaylandEnable=true``
+    - `/etc/gdm3/custom.conf`, `WaylandEnable=true`
 
 ## Exercice 8 : (Avancé++) Gestion des noyaux
 
