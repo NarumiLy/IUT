@@ -32,10 +32,7 @@ class GenerateurProduit extends Program {
         return tab;
     }
     */
-    /* Fonction qui transforme un fichier texte en fichier html
-    * @param txt : le fichier texte
-    * @return : le fichier html
-    */
+
 
     /*
      * Fonction qui récupère la valeur d'une ligne en fonction de son nom
@@ -68,6 +65,10 @@ class GenerateurProduit extends Program {
         return result;
     }
 
+    /* Fonction qui transforme un fichier texte en fichier html
+    * @param txt : le fichier texte
+    * @return : le fichier html
+    */
     String txtToHtml(String txt) {
         String result = "";
         String nom = getValeursByName(txt, "nom");
