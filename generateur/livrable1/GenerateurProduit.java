@@ -1,40 +1,6 @@
 class GenerateurProduit extends Program {
 
     /*
-     * Fonction qui transforme un fichier texte en une liste de valeurs
-     * @param txt : le fichier texte
-     * @return : la liste de valeurs
-     */
-    /* 
-    String [] getValeurstoArray(String txt) {
-        String [] tab = new String [5];
-        int i = 0;
-        int debutIndice = 0;
-        int nvlLigne = 0;
-        while (i < length(txt)) {
-            // Si on trouve un : on récupère l'indice
-            if(txt.charAt(i) == ':') {
-                // On récupère l'indice et on rajoute 2 car on ne veut pas le :, ni l'espace juste après
-                debutIndice = i+2;
-            }
-            // Si on trouve un \n on récupère la valeur et on l'ajoute au tableau
-            if (txt.charAt(i) == '\n') {
-                tab[nvlLigne] = substring(txt, debutIndice, i);
-                // On ajoute une case au tableau
-                nvlLigne = nvlLigne + 1;
-            }
-            // Si on a récupéré toutes les valeurs on sort de la boucle, on ne veut pas récupérer les valeurs suivantes puisqu'il n'y en a pas normalement.
-            if(nvlLigne > 4) {
-                break;
-            }
-            i = i + 1;
-        }
-        return tab;
-    }
-    */
-
-
-    /*
      * Fonction qui récupère la valeur d'une ligne en fonction de son nom
      * @param txt : le fichier texte
      * @param name : le nom de la valeur recherchée
@@ -65,10 +31,11 @@ class GenerateurProduit extends Program {
         return result;
     }
 
-    /* Fonction qui transforme un fichier texte en fichier html
-    * @param txt : le fichier texte
-    * @return : le fichier html
-    */
+    /*
+     * Fonction qui transforme un fichier texte en fichier html
+     * @param txt : le fichier texte
+     * @return : le fichier html
+     */
     String txtToHtml(String txt) {
         String result = "";
         String nom = getValeursByName(txt, "nom");
@@ -128,7 +95,6 @@ class GenerateurProduit extends Program {
         String nomFichier = argument(0);
         if(!fileExist(nomFichier)) {
             error(nomFichier + " n'existe pas");
-            return;
         }
         String content = fileAsString(nomFichier);
         print(txtToHtml(content));
