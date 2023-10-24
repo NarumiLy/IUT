@@ -22,7 +22,7 @@ class GenerateurSite extends Program {
                       "      </section>\n" +
                       "    </main>\n" +
                       "  </body>\n" +
-                      "</html>";
+                      "</html>\n";
     /*
      * Fonction qui récupère la valeur d'une ligne en fonction de son nom
      * @param txt : le fichier texte
@@ -123,13 +123,13 @@ class GenerateurSite extends Program {
                 }
             }
         }
-        res += "\n";
         return res;
     }
 
     String ajouterLitoHtml(int nbrFichier, String page) {
         String res = "";
-        for(int i = 0; i<page.length(); i++) {
+        // On ajoute le nombre de fichier à notre page, length() - 2 car fileAsString rajoute une newline automatiquement... 
+        for(int i = 0; i<page.length()-2; i++) {
             // On ajoute tous les caractères de la page html
             res = res + charAt(page, i);
             // Si on trouve une balise fermante
@@ -144,6 +144,7 @@ class GenerateurSite extends Program {
                 }
             }
         }
+        res += ">";
         return res;
     }
     // Fonction principale
@@ -151,7 +152,7 @@ class GenerateurSite extends Program {
         String nomFichier = "./data/produit";
         int nbrFichier = 1;
         // Tant qu'il y a un fichier avec le nom produit + un nombre + .txt on le transforme en html
-        while(fileExist(nomFichier + nbrFichier + ".txt")) {
+        while(fileExist(nomFichier + nbrFichier + ".txt") && !fileExist("./output/produit" + nbrFichier + ".html")) {
             // On récupère le contenu du fichier
             String content = fileAsString(nomFichier + nbrFichier + ".txt");
             // On transforme le contenu du fichier en html
@@ -177,8 +178,8 @@ class GenerateurSite extends Program {
         }
         // On crée la page index.html
         String index = indexPage(nbrFichier);
-        // On ajoute les li à la page index.html
-        String indexLi = ajouterLitoHtml(nbrFichier, index);
+        // On ajoute les li à la page index.html et un newline pcq la fonction fileAsString() rajoute une nl automatiquement...
+        String indexLi = ajouterLitoHtml(nbrFichier, index) + "\n";
         // On crée le fichier index.html
         stringAsFile("./output/index.html", indexLi);
 
