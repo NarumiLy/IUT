@@ -196,12 +196,13 @@ String[][] chargerProduits(String repertoire, String prefixe) {
     // Fonction principale
     void algorithm() {
         String[][] tabProduit = chargerProduits("./data", "produit");
+        String output = "./output/";
         // On crée les pages produitX.html
         for(int i = 0; i<tabProduit.length; i++) {
             // On crée la page produitX.html
             String produit = txtToHtml(tabProduit[i]);
             // On crée le fichier produitX.html
-            stringAsFile("./output/produit" + (i+1) + ".html", produit);
+            stringAsFile(output + "produit" + (i+1) + ".html", produit);
         }
 
         // Ajouter Li à nos fichiers html
@@ -215,13 +216,13 @@ String[][] chargerProduits(String repertoire, String prefixe) {
             // On transforme le contenu du fichier en html
             String html = ajouterLitoHtml(i, content, tabProduit);
             // On crée le fichier html
-            stringAsFile("./output/" + "produit" + i + ".html", html);
+            stringAsFile(output + "produit" + i + ".html", html);
         }
         // On crée la page index.html
         String index = indexPage();
         // On ajoute les li à la page index.html et un newline pcq la fonction fileAsString() rajoute une nl automatiquement...
         String indexLi = ajouterLitoHtml(0, index, tabProduit);
         // On crée le fichier index.html
-        stringAsFile("./output/index.html", indexLi);
+        stringAsFile(output + "index.html", indexLi);
     }
 }
