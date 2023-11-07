@@ -212,7 +212,7 @@ String[][] chargerProduits(String repertoire, String prefixe) {
         */
         for(int i = 1; i<tabProduit.length+1; i++) {
             // On récupère le contenu du fichier
-            String content = fileAsString("./output/" + "produit" + i + ".html");
+            String content = fileAsString(output + "produit" + i + ".html");
             // On transforme le contenu du fichier en html
             String html = ajouterLitoHtml(i, content, tabProduit);
             // On crée le fichier html
